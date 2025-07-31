@@ -20,7 +20,7 @@ body {
 
 .teaser .hero-body {
   padding-top: 0;
-  padding-bottom: 3rem;
+  padding-bottom: 0rem;
 }
 
 .teaser {
@@ -133,5 +133,26 @@ body {
   font-size: smaller;
 }
 
+hr.section-divider {
+  border: none;
+  height: 2px;
+  margin: 1rem auto;
+  width: 65%;
+  background: linear-gradient(to right, #666, #444, #666);
+  opacity: 0.7;
+  border-radius: 1px;
+}
 
+.hero {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
 
+.hero .hero-body {
+  padding-top: 0.0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+mjx-container .mjx-mstyle[color="navyblue"] {
+  color: #3B76AF !important;
+}

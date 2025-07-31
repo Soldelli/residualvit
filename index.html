@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
 
+  <script defer src="static/js/mathjax/es5/tex-chtml.js"></script>
+
   <!-- Meta tags for search engines and social sharing -->
   <meta name="description" content="ResidualViT: A method for efficient temporally dense video encoding using learnable temporal residuals and token reduction." />
   <meta property="og:title" content="ResidualViT for Efficient Temporally Dense Video Encoding"/>
@@ -104,25 +106,29 @@
 </section>
 
 
+<!-- <hr class="section-divider">
+
 <!-- Teaser video-->
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
+        Your video here -->
+        <!-- <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
         DESCRIPTION OF VIDEO
       </h2>
     </div>
-  </div>
-</section>
+  </div> -->
+<!-- </section> --> 
 <!-- End teaser video -->
 
+<hr class="section-divider">
+
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -132,7 +138,7 @@
             Several video understanding tasks, such as natural language temporal video grounding, temporal activity localization, and audio description generation, require "temporally dense" reasoning over frames sampled at high temporal resolution. However, computing frame-level features for these tasks is computationally expensive given the temporal resolution requirements. In this paper, we make three contributions to reduce the cost of computing features for temporally dense tasks.  
         First, we introduce a vision transformer (ViT) architecture, dubbed ResidualViT, that leverages the large temporal redundancy in videos to efficiently compute temporally dense frame-level features. Our architecture incorporates (i) learnable residual connections that ensure temporal consistency across consecutive frames and (ii) a token reduction module that enhances processing speed by selectively discarding temporally redundant information while reusing weights of a pretrained foundation model.
         Second, we propose a lightweight distillation strategy to approximate the frame-level features of the original foundation model. 
-        Finally, we evaluate our approach across four tasks and five datasets, in both zero-shot and fully supervised settings, demonstrating significant reductions in computational cost (up to 60%) and improvements in inference speed (up to 2.5x faster), all while closely approximating the accuracy of the original foundation model. 
+        Finally, we evaluate our approach across four tasks and five datasets, in both zero-shot and fully supervised settings, demonstrating significant reductions in computational cost (up to \( 60\%  \)) and improvements in inference speed (up to \( {\sim}2.5\times  \) faster), all while closely approximating the accuracy of the original foundation model. 
           </p>
         </div>
       </div>
@@ -140,6 +146,70 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+<hr class="section-divider">
+
+<!-- Start Custom Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Efficient Temporally Dense Video Encoding</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        (a) Naively encoding videos incurs a high computational cost when computing frame-level features for temporally dense tasks.
+        (b) Our efficient interleaved approach significantly reduces this cost, enabling efficient temporally dense feature extraction.
+        (c) On benchmark datasets, ResidualViT reduces the computational cost by an average of \( 56\%  \) compared to the CLIP encoder while <strong>maintaining nearly identical accuracy</strong> across multiple downstream tasks: Natural Language Temporal Video Grounding (NLTVG), Temporal Activity Localization (TAL), Audio Description generation (AD), and Action Recognition (AR).
+      </p>
+
+      <figure>
+        <img src="static/images/teaser.png"/>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End Custom Section -->
+
+<hr class="section-divider">
+
+<!-- Start Custom Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">ResidualViT Architecture</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        (a) Video frames are processed via two visual encoders \(\mathcal{E}_{\mathcal{V}}\) and \( \mathcal{E}_{\mathcal{S}} \) in an interleaved manner. For each frame encoded via the ViT \( \mathcal{E}_{\mathcal{V}} \), N subsequent frames are encoded using our lightweight ResidualViT \( \mathcal{E}_{\mathcal{S}} \), significantly reducing the computational cost. (b) ResidualViT incorporates a token reduction module \( \mathcal{R} \) to reduce computation and the residual tokenizer \( \mathcal{A} \) to ensure temporal consistency by propagating information from preceding frames.
+      </p>
+
+      <figure>
+        <img src="static/images/architecture_pipeline.png"/>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End Custom Section -->
+
+<hr class="section-divider">
+
+<!-- Start Custom Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Encoding Time Efficiency</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        When varying the batch size, we showcase the runtime difference of a standard ViT (<span style="color:#3B76AF;">\( \textbf{blue} \)</span>) against our ResidualViT (<span style="color:#FF8C00;">\( \textbf{orange} \)</span>). We demonstrate that our approach is  \( {\sim}2.5\times  \) faster than a standard ViT. Moreover, for the same time budget (\ie, 10 seconds), we can accommodate  \( {\sim}2.5\times \) more samples in the batch without incurring Out Of Memory issues.
+      </p>
+
+      <figure>
+        <img src="static/images/timing.png" style="width: 60%;" />
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End Custom Section -->
+
+<hr class="section-divider">
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -156,8 +226,10 @@
 </section>
 <!--End BibTex citation -->
 
+<hr class="section-divider">
+
 <!-- Acknowledgments -->
-<section class="section hero is-light">
+<section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Acknowledgments</h2>
     <div class="content has-text-justified">
