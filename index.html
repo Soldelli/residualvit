@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script defer src="static/js/mathjax/es5/tex-chtml.js"></script>
+
+  <!-- Meta tags for search engines and social sharing -->
+  <meta name="description" content="ResidualViT: A method for efficient temporally dense video encoding using learnable temporal residuals and token reduction." />
+  <meta property="og:title" content="ResidualViT for Efficient Temporally Dense Video Encoding"/>
+  <meta property="og:description" content="ICCV 2025 Highlight: ResidualViT achieves 2.5× faster frame encoding with 60% lower cost—preserving accuracy across multiple video understanding tasks."/>
+  <meta property="og:url" content="https://soldelli.github.io/residualvit/" />
+  <meta property="og:image" content="static/images/teaser.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <!-- Twitter meta tags -->
+  <meta name="twitter:title" content="ResidualViT: Fast & Efficient Video Encoding" />
+  <meta name="twitter:description" content="ICCV 2025 Highlight Paper by Mattia Soldan et al. Reduces compute by 60% with minimal accuracy drop. Learn more." />
+  <meta name="twitter:image" content="static/images/teaser.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- SEO Keywords -->
+  <meta name="keywords" content="ResidualViT, Video Encoding, Temporal Grounding, CLIP, Vision Transformer, Efficient AI, ICCV 2025, Zero-Shot Video Understanding, Token Reduction" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>ResidualViT</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ResidualViT for Efficient</br>Temporally Dense Video Encoding</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=M5tSjYYAAAAJ" target="_blank">Mattia Soldan</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?hl=en&user=C3277_wAAAAJ" target="_blank">Fabian Caba Heilbron</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                  <a href="https://scholar.google.com/citations?hl=en&user=rVsGTeEAAAAJ" target="_blank">Bernard Ghanem</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                  <a href="https://scholar.google.com/citations?hl=en&user=NCtKHnQAAAAJ" target="_blank">Josef Sivic</a><sup>2,3</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?hl=en&user=3RuMCpcAAAAJ" target="_blank">Bryan Russell</a><sup>3</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><br><sup>1</sup> King Abdullah University of Science and Technology<br><sup>2</sup> Czech Institute of Informatics, Robotics and Cybernetics at the Czech Technical University in Prague<br><sup>3</sup> Adobe Research<br><br>ICCV 2025 - Highlight Paper</span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code - Coming Soon</span>
+                    </a>
+                  </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <hr class="section-divider">
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        Your video here -->
+        <!-- <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        DESCRIPTION OF VIDEO
+      </h2>
+    </div>
+  </div> -->
+<!-- </section> --> 
+<!-- End teaser video -->
+
+<hr class="section-divider">
+
+<!-- Paper abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Several video understanding tasks, such as natural language temporal video grounding, temporal activity localization, and audio description generation, require "temporally dense" reasoning over frames sampled at high temporal resolution. However, computing frame-level features for these tasks is computationally expensive given the temporal resolution requirements. In this paper, we make three contributions to reduce the cost of computing features for temporally dense tasks.  
+        First, we introduce a vision transformer (ViT) architecture, dubbed ResidualViT, that leverages the large temporal redundancy in videos to efficiently compute temporally dense frame-level features. Our architecture incorporates (i) learnable residual connections that ensure temporal consistency across consecutive frames and (ii) a token reduction module that enhances processing speed by selectively discarding temporally redundant information while reusing weights of a pretrained foundation model.
+        Second, we propose a lightweight distillation strategy to approximate the frame-level features of the original foundation model. 
+        Finally, we evaluate our approach across four tasks and five datasets, in both zero-shot and fully supervised settings, demonstrating significant reductions in computational cost (up to \( 60\%  \)) and improvements in inference speed (up to \( {\sim}2.5\times  \) faster), all while closely approximating the accuracy of the original foundation model. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<hr class="section-divider">
+
+<!-- Start Custom Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Efficient Temporally Dense Video Encoding</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        (a) Naively encoding videos incurs a high computational cost when computing frame-level features for temporally dense tasks.
+        (b) Our efficient interleaved approach significantly reduces this cost, enabling efficient temporally dense feature extraction.
+        (c) On benchmark datasets, ResidualViT reduces the computational cost by an average of \( 56\%  \) compared to the CLIP encoder while <strong>maintaining nearly identical accuracy</strong> across multiple downstream tasks: Natural Language Temporal Video Grounding (NLTVG), Temporal Activity Localization (TAL), Audio Description generation (AD), and Action Recognition (AR).
+      </p>
+
+      <figure>
+        <img src="static/images/teaser.png"/>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End Custom Section -->
+
+<hr class="section-divider">
+
+<!-- Start Custom Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">ResidualViT Architecture</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        (a) Video frames are processed via two visual encoders \(\mathcal{E}_{\mathcal{V}}\) and \( \mathcal{E}_{\mathcal{S}} \) in an interleaved manner. For each frame encoded via the ViT \( \mathcal{E}_{\mathcal{V}} \), N subsequent frames are encoded using our lightweight ResidualViT \( \mathcal{E}_{\mathcal{S}} \), significantly reducing the computational cost. (b) ResidualViT incorporates a token reduction module \( \mathcal{R} \) to reduce computation and the residual tokenizer \( \mathcal{A} \) to ensure temporal consistency by propagating information from preceding frames.
+      </p>
+
+      <figure>
+        <img src="static/images/architecture_pipeline.png"/>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End Custom Section -->
+
+<hr class="section-divider">
+
+<!-- Start Custom Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Encoding Time Efficiency</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        When varying the batch size, we showcase the runtime difference of a standard ViT (<span style="color:#3B76AF;">\( \textbf{blue} \)</span>) against our ResidualViT (<span style="color:#FF8C00;">\( \textbf{orange} \)</span>). We demonstrate that our approach is  \( {\sim}2.5\times  \) faster than a standard ViT. Moreover, for the same time budget (\ie, 10 seconds), we can accommodate  \( {\sim}2.5\times \) more samples in the batch without incurring Out Of Memory issues.
+      </p>
+
+      <figure>
+        <img src="static/images/timing.png" style="width: 60%;" />
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End Custom Section -->
+
+<hr class="section-divider">
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{soldan2025residualvit,
+  title={ResidualViT for Efficient Temporally Dense Video Encoding},
+  author={Soldan, Mattia and Caba Heilbron, Fabian and Ghanem, Bernard and Sivic, Josef and Russell, Bryan},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year={2025}
+}
+</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+<hr class="section-divider">
+
+<!-- Acknowledgments -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Acknowledgments</h2>
+    <div class="content has-text-justified">
+      <p>
+        This work was supported by King Abdullah University of Science and Technology (KAUST), Center of Excellence for Generative AI under award number 5940. We also thank Adobe Research for their support and collaboration. 
+        <br><br>
+        Special thanks to all collaborators and contributors who provided feedback and insight during the development of this work.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End Acknowledgments -->
+
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
