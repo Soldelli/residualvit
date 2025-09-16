@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soldelli.github.io/residualvit/sitemap.xml
