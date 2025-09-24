@@ -117,11 +117,14 @@ residualvit/
 ## 💡 Citation
 If you use this code or find it helpful in your research, please cite our paper:
 ```bibtex
-@inproceedings{soldan2025residualvit,
-  title={ResidualViT for Efficient Temporally Dense Video Encoding},
-  author={Soldan, Mattia and Caba Heilbron, Fabian and Ghanem, Bernard and Sivic, Josef and Russell, Bryan},
-  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-  year={2025}
+@misc{soldan2025residualvitefficienttemporallydense,
+      title={ResidualViT for Efficient Temporally Dense Video Encoding}, 
+      author={Mattia Soldan and Fabian Caba Heilbron and Bernard Ghanem and Josef Sivic and Bryan Russell},
+      year={2025},
+      eprint={2509.13255},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2509.13255}, 
 }
 ```
 
